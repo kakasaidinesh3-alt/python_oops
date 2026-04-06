@@ -39,7 +39,7 @@ c.print()
 c.printf()
 c.add_property()
 """
-
+"""
 #multiple inheritance
 #derived class inherit the properties and attrtibutes and methods of more than one base class.
 class grand_father:
@@ -81,3 +81,64 @@ s.son_print()
 s.father_print()
 s.grand_father_print()
 s.inherit_property()
+"""
+"""
+# Multi_Level Inheritance
+# derived class inherit the base class which inherit the another derived class.
+class Grand_father:
+    def __init__(self,grandfather_name,grandfather_age,grandfather_property):
+        self.grandfather_name = grandfather_name
+        self.grandfather_age = grandfather_age
+        self.grandfather_property = grandfather_property
+
+class father(Grand_father):
+    def __init__(self, grandfather_name, grandfather_age, grandfather_property):
+        Grand_father.__init__(self,grandfather_name, grandfather_age, grandfather_property)
+        pass
+
+class son(father):
+    def __init__(self, grandfather_name, grandfather_age, grandfather_property):
+        father.__init__(self,grandfather_name,grandfather_age,grandfather_property)
+        self.son_property = self.grandfather_property
+
+    def printf(self):
+        print(self.grandfather_name,self.grandfather_age,self.grandfather_property,self.son_property)
+    
+s = son("bhrami",75,900000)
+s.printf()
+"""
+#Hierachical inhertance 
+# two or more than derived class inherits from base class.
+class father:
+    def __init__(self,name,age,father_property):
+        self.name = name
+        self.age = age
+        self.father_property = father_property
+    
+    def property_divided(self):
+        self.share = self.father_property/3
+        print(f"{self.name} gets:{self.share}")
+
+class son1(father):
+    def __init__(self,name,age,father_property):
+        father.__init__(self,name,age,father_property)
+        pass
+
+class son2(father):
+    def __init__(self, name, age, father_property):
+        father.__init__(self,name,age,father_property)
+        pass
+
+class son3(father):
+    def __init__(self, name, age, father_property):
+        father.__init__(self,name,age,father_property)
+        pass
+
+
+s1 = father("dinesh",29,9000000)
+s2 = father("keerthi",27,9000000)
+s3 = father("raghav",27,9000000)
+
+s1.property_divided()
+s2.property_divided()
+s3.property_divided()
