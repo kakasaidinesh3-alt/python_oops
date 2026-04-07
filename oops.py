@@ -11,7 +11,7 @@ class Student:
 s = Student("dinesh",56)
 s.printf()
 """
-
+"""
 #mention 5 student in class
 class student: #created the class
     def __init__(self,name): # intilazing the attribute in a class
@@ -28,3 +28,5 @@ for i in range(5):
 
 for i in range(5):
     student1[i].print() #object call the print function
+
+"""

@@ -107,6 +107,7 @@ class son(father):
 s = son("bhrami",75,900000)
 s.printf()
 """
+"""
 #Hierachical inhertance 
 # two or more than derived class inherits from base class.
 class father:
@@ -142,3 +143,46 @@ s3 = father("raghav",27,9000000)
 s1.property_divided()
 s2.property_divided()
 s3.property_divided()
+"""
+
+#Hybrid inheritance
+#hybrid inheritance is a combination of more than one type of inheritance. it uses the multi-level,multiple and single inheritance in a same program. its used in method resolution order(MRO)
+
+class grand_father:
+    def __init__(self,name,age,grandfather_property):
+        self.name = name
+        self.age = age
+        self.grandfather_property = grandfather_property
+    
+    def property_share(self):
+        self.share = self.grandfather_property/2
+        print(f"{self.name} gets: {self.share}")
+        return self.share
+
+class father1(grand_father):
+    def __init__(self,name,age,grandfather_property):
+        grand_father.__init__(self,name,age,grandfather_property)
+        pass
+
+class father2(grand_father):
+    def __init__(self,name,age, grandfather_property):
+        grand_father.__init__(self,name,age,grandfather_property)
+        pass
+
+class son(father1,father2,):
+    def __init__(self,name,father1_share,father2_share):
+        self.son_name = name 
+        self.father1_share = father1_share
+        self.father2_share = father2_share
+    
+    def son_recevied_share(self):
+        self.son_share =  self.father1_share + self.father2_share
+        print(f"{self.son_name} gets: {self.son_share}")
+
+f1 = father1("yugandhar",55,9000000)
+f2 = father2("mahesh",45,9000000)
+father1_share = f1.property_share()
+father2_share = f2.property_share()
+s = son("dinesh",father1_share,father2_share)
+s.son_recevied_share()
+        
