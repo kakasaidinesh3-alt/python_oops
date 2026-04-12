@@ -30,6 +30,7 @@ f = open("data.txt",'r+')
 print(f.read())
 print(f.write("hii\n"))
 """
+"""
 # w - write only create the file if does not exists- overwrite the existing data
 f = open("data1.txt",'w')
 print(f.write("hii im dinesh kaka\n"))
@@ -38,3 +39,70 @@ f = open("data2.txt",'w+')
 print(f.write("hello dinesh im pythons\n"))
 f.seek(0)
 print(f.read())
+"""
+"""
+# a - append is used to write the data in file ,without deleting the existing data , creating file is not avalible.
+f = open("data2.txt",'a')
+print(f.write("hjlik"))
+"""
+"""
+# a + = append is used to read , write the data in a file without deleting the existing data, creating file is not avalible
+f = open("data2.txt",'a+')
+#f.seek(0)
+#print(f.read())
+#print(f.write("\nim learning python"))
+#f.seek(0)
+#print(f.readline()) # readline will print starting line of data in a file.
+#print(f.readlines()) # readlines will print whole data in list format.
+list1 =['sdmkds','jasjnd','njasj']
+f.writelines(list1)
+f.seek(0)
+print(f.read())
+"""
+# with function in file handling , by with its automatically close the file, without corruption and memory leakages
+"""
+#custom expection:
+import os
+
+class FileNotFound(Exception):
+    pass
+
+file = r'D:\python_class_part2\python_oops\data2.txt'
+try:
+    if not os.path.exists(file):
+        raise FileNotFound("file is not avalible")
+
+    with open(file,'r') as f:
+        c =f.readlines()
+        print(c)
+        for i in c:
+            if 'dinesh' in i:
+                print(i)
+
+    
+except Exception as e:
+    print(e)
+
+"""
+"""
+import os
+
+list1 = ['jnjanjs','piyrtyuio','pokjnb','qwsdefgbn']
+class FileNotFound(Exception):
+    pass
+
+file = r'D:\python_class_part2\python_oops\data3.txt'
+try:
+    with open(file,'w') as f:
+        f.writelines(list1)
+
+except Exception as e:
+    print(e)
+
+"""
+
+
+
+
+
+
