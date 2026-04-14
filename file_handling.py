@@ -101,7 +101,53 @@ except Exception as e:
 
 """
 
+# to handle csv files we have lib "import csv" and to handle excel file Import openpyxl or pandas
+#to handle the csv files
+#csv is comma seperator values
+# to read the csv file
+import csv
+"""
+with open("data.csv",'r') as fp:
+    reader = csv.reader(fp)
+    for  r in reader:
+        print(r)
 
+"""
+"""
+with open("data1.csv",'w') as f:
+    w = csv.writer(f)
+    w.writerow(['jskdkf','oiutt','ishhdsbd'])
+"""
+"""
+l =[
+    ['hsd','ksh','jsdjd'],
+    ['nsj','jkkiu','iuytr'],
+    ['poiuhj','azxds','gvbfd']
+    ]
+
+with open("data.csv",'a',newline='') as fp:
+    w = csv.writer(fp)
+    w.writerows(l)
+"""
+
+import os
+import csv
+
+class FileNotFound(Exception):
+    pass
+
+file = r'D:\python_class_part2\python_oops\data2.csv'
+try:
+    if not os.path.exists(file):
+        raise FileNotFound("file is not avalible")
+
+    with open(file,'r') as fp:
+        r = csv.reader(fp)
+        for i in r:
+            print(i)
+
+except Exception as e:
+    print(e)
 
 
 
