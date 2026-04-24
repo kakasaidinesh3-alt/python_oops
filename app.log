@@ -1,0 +1,12 @@
+INFO:root:tring to login
+INFO:root:welcome to dashboard
+INFO:root:successfully logged
+INFO:root:tring to login
+INFO:root:welcome to dashboard
+INFO:root:tring to login
+INFO:root:welcome to dashboard
+INFO:root:successfully logged
+INFO:root:tring to login
+INFO:root:tring to login
+ERROR:root:user and password wrong
+ERROR:root:logging failed

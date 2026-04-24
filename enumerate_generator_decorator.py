@@ -141,6 +141,7 @@ for x in func(l):
     l1.append(x)
 print(l1)
 """
+"""
 #csv streaming(without loading whole file)
 import csv
 
@@ -158,3 +159,93 @@ file = r'D:\python_class_part2\python_oops\data1.csv'
 for line in file_data(file):
     if line["name"] == "dinesh":
         print(line)
+"""
+"""
+# decorator is a function takes anotherfunction as input and return the new function 
+import time
+def my_dec(func):
+    def wrapper():
+        start = time.time()
+        func()
+        end = time.time()
+        print("start:",start)
+        print("end:",end)
+        print("start-end:",end-start)
+        print("even number in given list")
+    return wrapper
+
+@my_dec
+def even():
+    for i in range(10000):
+        if i %2 ==0:
+            print(i) 
+
+even()
+"""
+"""
+#added two element using decorator
+import time
+def my_dec(func):
+    def wrapper(a,b):
+        start = time.time()
+        func(a,b)
+        end = time.time()
+        print("start-end:",start-end)
+    return wrapper
+
+@my_dec
+def added(a,b):
+    print(a+b)
+
+added(2,3)
+"""
+"""
+#even or odd
+def my_dec(func):
+    def wrapper(lst):
+        func(lst)
+    return wrapper
+
+@my_dec
+def even(l):
+    for i in l:
+        if i % 2 ==0:
+            print("even:",i)
+        else:
+            print("odd:",i)
+
+l = [1,2,3,4,5,6,7,8,9]
+even(l)
+"""
+import logging
+logging.basicConfig(filename="app.log",level=logging.INFO)
+
+def my_dec(func):
+    def wrapper(us,passw):
+        #print("trying to logging")
+        logging.info("tring to login")
+        result =func(us,passw)
+        if result:
+            #print("successfully logged")
+            logging.info("successfully logged")
+        else:
+            #print("logging failed")
+            logging.error("logging failed")
+    return wrapper
+
+@my_dec
+def auth(user,password):
+    lst_user = ['dinesh','sai','kaka','pavan','zaheer']
+    lst_password =['Dinesh@9700','Dinesh@7981','Sai$345','kaka*767','zahher*786']
+    if user in lst_user and password in lst_password:
+        #print("welcome to dashboard")
+        logging.info("welcome to dashboard")
+        return True
+    else:
+        #print("user and password wrong")
+        logging.error("user and password wrong")
+        return False
+
+user ='dinesh'
+password = 'Dinesh@970'
+auth(user,password)
